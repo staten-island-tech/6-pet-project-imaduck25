@@ -6,6 +6,7 @@ class yournewpet():
     def buy(self, item):
         self.inventory.append(item)
         print(self.inventory)
-    pet_name = input("Hi! You have just been gifted a new pet! The species is unkown, but pick a name for it! ")
+    pet_name = ("Hi! You have just been gifted a new pet! The species is unkown, but pick a name for it! ")
+    print(pet_name)
     print("So you named for pet", pet_name, "!", "What a nice name!")
-    print(pet_name,"has 5 energy. What would you like to do with him? Feed, play, take a nap, analyze")
+    input(pet_name,"has 5 energy. What would you like to do with them? Feed, play, take a nap, analyze")
