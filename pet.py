@@ -1,12 +1,14 @@
 class yournewpet():
-    def __init__(self, name, energy=5, happiness=5):
+    def __init__(self, name, energy=5, happiness=5, money=5):
         self.name = name
         self.energy = energy
         self.happiness = happiness
+        self.money = money 
         self.inventory = []
     def buy(self, item):
         self.inventory.append(item)
         print(self.name, "'s inventory", str(self.inventory))
+
 def pet():
         pet_name = input("Hi! You have just been gifted a new pet! The species is unkown, but pick a name for it! ")
         my_pet = yournewpet(pet_name)
