@@ -18,18 +18,26 @@ def pet():
     print("So you named your pet", pet_name, "! What a nice name!")
     while True:
         if my_pet.happiness <= 0:
-            print(pet_name, "was too bored. It eats you.")
+            print("Oh, and I forgot to mention that if", pet_name, "'s happiness gets to low... it eats you.")
+            print(pet_name, "was too dissatisfied. It eats you.")
             break
-        print(pet_name, " has", str(my_pet.energy), "energy", str(my_pet.happiness), "happiness, and", str(my_pet.coins), "coins.")
+        if my_pet.energy >= 10:
+            print("Oh, and I forgot to mention that if", pet_name, "'s excitemnet gets too high... it eats you.")
+            print(pet_name, "was chatically excited. It eats you.")
+            break
+        print(pet_name, " has", str(my_pet.energy), "energy,", str(my_pet.happiness), "happiness, and", str(my_pet.coins), "coins.")
         activities = input("What would you like to do with " + pet_name + "? Options: Feed, Play, Take a nap, Analyze, Shop, Quit: ").lower().strip()
         if activities == "feed":
             if "food" in my_pet.inventory:
                 my_pet.inventory.remove("food")
                 my_pet.happiness += 1
                 my_pet.energy += 2
-                print("You fed", pet_name, ". Energy is now ", str(my_pet.energy), ".")
+                print("You fed", pet_name, ". Happiness is now", str(my_pet.happiness), "and energy is now", str(my_pet.energy), ".")
             else:
                 print("No food in inventory!", pet_name, " is starving...")
+                print("Also, you must buy food before feeding", pet_name, "by going to shop.")
+                my_pet.happiness -= 1
+                print("You didn't feed", pet_name, ". Happiness is now", str(my_pet.happiness), "and energy is now", str(my_pet.energy), ".")
                 if my_pet.energy < 1:
                     my_pet.happiness -= 3
                     print(pet_name, " lost 3 happiness due to starvation!")
@@ -46,7 +54,6 @@ def pet():
             my_pet.energy -= 1
             print("Your thoughts: what's diffrent about", pet_name, "?", pet_name," looks like a normal cat to me... or does it?")
             print(pet_name, " is bored now. Happiness is now ", str(my_pet.happiness), ", energy is now ", str(my_pet.energy), ".")
-            print("Oh, and I forgot to mention that if", pet_name, "'s happiness gets to low... they die.")
         elif activities == "shop":
             choice = input("Welcome to Shop Wrong! Food costs 2 coins. Buy food? (yes/no): ").lower().strip()
             if choice == "yes":
