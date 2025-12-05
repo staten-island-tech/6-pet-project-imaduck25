@@ -9,7 +9,7 @@ class urpet:
         if self.coins >= cost:
             self.coins -= cost
             self.inventory.append(item)
-            print(self.name, "bought", item, ". Coins left:", str(self.coins))
+            print(self.name, "bought", item, ". Coins left:", self.coins)
         else:
             print(self.name, "doesn’t have enough coins to buy", item, "!")
 def pet():
